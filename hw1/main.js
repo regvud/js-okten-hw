@@ -23,3 +23,11 @@ let b = '100';
 let c = true;
 
 console.log(typeof (a), typeof (b), typeof (c));
+
+let name = prompt('Enter your name: ');
+let fatherName = prompt('Enter your middle name: ');
+let age = prompt('Enter your age: ');
+
+console.log(`Name: ${name}`);
+console.log(`Middle Name: ${fatherName}`);
+console.log(`Age: ${age}`);
