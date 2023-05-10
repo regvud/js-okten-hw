@@ -105,7 +105,8 @@ let products = [{
 
 for (let i = 0; i < products.length; i++) {
     const product = products[i];
-    document.write(`<div>
+    document.write(`
+        <div>
             <h3 class="product-title">${product.title}. Price - ${product.price}</h3>
             <img src="${product.image}" alt="" class="product-image">
         </div>`)
