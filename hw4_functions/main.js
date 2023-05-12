@@ -153,6 +153,10 @@ function swap(arr, index1, index2) {
     return arr;
 }
 
+// function swap2(arr, index1, index2) {
+//     [arr[index1], arr[index2] = arr[index2], arr[index1]]
+//     return arr;
+// }
 
 console.log(swap(array, 2, 1));
 
