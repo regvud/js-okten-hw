@@ -20,7 +20,7 @@ console.log(cilinderS(1, 1));
 // - створити функцію яка приймає масив та виводить кожен його елемент
 const someArr = [1, 2, 3, 4, 5, 6, 7];
 
-const reveal = (arr) => someArr.forEach((element) => console.log(element))
+const reveal = (arr) => arr.forEach((element) => console.log(element))
 
 reveal(someArr);
 
@@ -58,9 +58,7 @@ let array = ['vasya', 12, 'izzya', false, true];
 
 const arrayListCreator = (arr) => {
     document.write(`<ul>`)
-    for (const arrElement of arr) {
-        document.write(`<li>${arrElement}</li>`)
-    }
+    arr.forEach((element) => document.write(`<li>${element}</li>`))
     document.write(`</ul>`)
 }
 
@@ -86,11 +84,12 @@ array = [
 ]
 
 const objWriter = (arr) => {
-    for (const arrElement of arr) {
-        document.write(`<p>ID - ${arrElement.id}</p>`)
-        document.write(`<p>NAME - ${arrElement.name}</p>`)
-        document.write(`<p>AGE - ${arrElement.age}</p>`)
-    }
+arr.forEach((user) => document.write(
+        `<p>ID - ${user.id}</p>
+         <p>NAME - ${user.name}</p>
+         <p>AGE - ${user.age}</p>`)
+)
+
 }
 
 objWriter(array)
@@ -100,6 +99,7 @@ array = [2, 14, 100, 12, 5, 6, 8, 2, 13, 10, 11]
 
 const minNumber = (arr) => {
     let minimum = 0;
+
     for (let i = 0; i < arr.length; i++) {
         if (arr[i] > arr[i + 1]) {
             minimum = arr[i + 1]
@@ -121,12 +121,9 @@ console.log(minNumber(array));
 const sum = (arr) => {
     let sumNumber = 0;
 
-    for (let i = 0; i < arr.length; i++) {
-        sumNumber += arr[i];
-    }
+    arr.forEach(number => sumNumber += number)
     return sumNumber
 }
-
 
 console.log(sum(array));
 
