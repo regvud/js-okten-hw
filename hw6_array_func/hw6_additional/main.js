@@ -76,19 +76,20 @@ console.log(filtered);
 
 // - Напишіть функцію capitalize(str), яка повертає рядок, у якому кожне слово починається з великої літери.
 const capitalize = (str) => {
-    let arr = [];
-    arr.push(str[0].toUpperCase())
+    // let arr = [];
+    // arr.push(str[0].toUpperCase())
+    //
+    // for (let i = 1; i < str.length; i++) {
+    //     if (str[i] === ' ') {
+    //         arr.push(`${str[i]}${str[i += 1].toUpperCase()}`)
+    //     } else {
+    //         arr.push(str[i])
+    //     }
+    // }
+    //
+    // return arr.join('')
 
-    for (let i = 1; i < str.length; i++) {
-        if (str[i] === ' ') {
-            arr.push(`${str[i]}${str[i += 1].toUpperCase()}`)
-        } else {
-            arr.push(str[i])
-        }
-    }
 
-    return arr.join('')
-}
 
 // capitalize('ivan teles subway nevada')
 console.log(capitalize('ivan teles subway nevada'));
@@ -250,18 +251,68 @@ console.log(coursesArray.sort((a, b) => a.modules.length - b.modules.length).rev
 // - Напишіть функцію count(str, stringsearch), яка повертає кількість символів stringsearch у рядку str.
 //     let symb = "о", str = "Астрономия это наука о небесных объектах";
 // document.writeln(count(str, symb)) // 5
-//
+const count = (str, stringsearch) => {
+    let counter = 0;
+    for (const element of stringsearch) {
+        if (element === str) {
+            counter += 1;
+        }
+    }
+    return counter
+}
+
+console.log(count('о', "Астрономия это наука о небесных объектах"));
+
 // - Напишіть функцію cutString(str, n), яка видаляє зайві слова з рядка str, залишивши у ній n слів.
 //     let str = "Сила тяжести приложена к центру масс тела";
 // document.writeln(cutString(str, 5)) // 'Сила тяжести приложена к центру'
-//
-//
-// -стоврити масив книжок (назва, кількість сторінок, автори , жанри).
-// -знайти наібльшу книжку.
-// - знайти книжку/ки з найбільшою кількістю жанрів
-// - знайти книжку/ки з найдовшою назвою
-// - знайти книжку/ки які писали 2 автори
-// - знайти книжку/ки які писав 1 автор
-// - вісортувати книжки по кількості сторінок по зростанню
 
+let somestr = "Сила тяжести приложена к центру масс тела";
+
+const cutString1 = (str, n) => {
+    const arr = str.split(' ');
+    arr.length = n;
+    return arr.join(' ')
+}
+
+console.log(cutString1(somestr, 5))
+
+// -стоврити масив книжок (назва, кількість сторінок, автори , жанри).
+const books = [{
+    title: 'Harry Potter',
+    pages: 150,
+    authors: ['J.K. Rowling', 'mb others'],
+    genres: ['dark fantasy']
+}, {
+    title: 'Gatsby',
+    pages: 100,
+    authors: ['Ronald', 'Jane', 'McDonald'],
+    genres: ['usual literature', 'unusual']
+}, {
+    title: 'LOTR',
+    pages: 300,
+    authors: ['Tolkin'],
+    genres: ['Fantasy']
+}]
+
+// -знайти наібльшу книжку.
+let biggestBook = books.sort((a, b) => b.pages - a.pages);
+console.log(biggestBook[0])
+
+// - знайти книжку/ки з найбільшою кількістю жанрів
+let mostGenresBook = books.sort((a, b) => b.genres.length - a.genres.length);
+console.log(mostGenresBook[0])
+
+// - знайти книжку/ки з найдовшою назвою
+let longestTitleBook = books.sort((a, b) => b.title.length - a.title.length);
+console.log(longestTitleBook[0])
+
+// - знайти книжку/ки які писали 2 автори
+console.log(books.filter(value => value.authors.length === 2));
+
+// - знайти книжку/ки які писав 1 автор
+console.log(books.filter(value => value.authors.length === 1));
+
+// - вісортувати книжки по кількості сторінок по зростанню
+console.log(books.sort((a, b) => (a.pages - b.pages)));
 
