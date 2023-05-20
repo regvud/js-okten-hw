@@ -90,9 +90,8 @@ const capitalize = (str) => {
     // return arr.join('')
 
 
-
 // capitalize('ivan teles subway nevada')
-console.log(capitalize('ivan teles subway nevada'));
+    console.log(capitalize('ivan teles subway nevada'));
 
 // - Створити функцію-валідатор для адрес електронної пошти. Перевірка повинна включати в себе :данні до знака равлика(@), наявність равлика, крапку яка знаходиться не меньше ніж на 2 символ далі після равлика, функція не чутлива до регістру (some@email.com,SOME@EMAIL.COM,some@EMAIL.com, і тд - однакові значення)
 // Протестувати на значеннях
@@ -176,124 +175,125 @@ console.log(capitalize('ivan teles subway nevada'));
 //
 //
 // відсортувати його в спадаючому порядку за  кількістю елементів вполі modules
-let coursesArray = [
-    {
-        title: 'JavaScript Complex',
-        monthDuration: 5,
-        hourDuration: 909,
-        modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'node.js']
-    },
-    {
-        title: 'Java Complex',
-        monthDuration: 6,
-        hourDuration: 909,
-        modules: ['html',
-            'css',
-            'js',
-            'mysql',
-            'mongodb',
-            'angular',
-            'aws',
-            'docker',
-            'git',
-            'java core',
-            'java advanced']
-    },
-    {
-        title: 'Python Complex',
-        monthDuration: 6,
-        hourDuration: 909,
-        modules: ['html',
-            'css',
-            'js',
-            'mysql',
-            'mongodb',
-            'angular',
-            'aws',
-            'docker',
-            'python core',
-            'python advanced']
-    },
-    {
-        title: 'QA Complex',
-        monthDuration: 4,
-        hourDuration: 909,
-        modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'git', 'QA/QC']
-    },
-    {
-        title: 'FullStack',
-        monthDuration: 7,
-        hourDuration: 909,
-        modules: ['html',
-            'css',
-            'js',
-            'mysql',
-            'mongodb',
-            'react',
-            'angular',
-            'aws',
-            'docker',
-            'git',
-            'node.js',
-            'python',
-            'java']
-    },
-    {
-        title: 'Frontend',
-        monthDuration: 4,
-        hourDuration: 909,
-        modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'sass']
-    }
-];
+    let coursesArray = [
+        {
+            title: 'JavaScript Complex',
+            monthDuration: 5,
+            hourDuration: 909,
+            modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'node.js']
+        },
+        {
+            title: 'Java Complex',
+            monthDuration: 6,
+            hourDuration: 909,
+            modules: ['html',
+                'css',
+                'js',
+                'mysql',
+                'mongodb',
+                'angular',
+                'aws',
+                'docker',
+                'git',
+                'java core',
+                'java advanced']
+        },
+        {
+            title: 'Python Complex',
+            monthDuration: 6,
+            hourDuration: 909,
+            modules: ['html',
+                'css',
+                'js',
+                'mysql',
+                'mongodb',
+                'angular',
+                'aws',
+                'docker',
+                'python core',
+                'python advanced']
+        },
+        {
+            title: 'QA Complex',
+            monthDuration: 4,
+            hourDuration: 909,
+            modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'git', 'QA/QC']
+        },
+        {
+            title: 'FullStack',
+            monthDuration: 7,
+            hourDuration: 909,
+            modules: ['html',
+                'css',
+                'js',
+                'mysql',
+                'mongodb',
+                'react',
+                'angular',
+                'aws',
+                'docker',
+                'git',
+                'node.js',
+                'python',
+                'java']
+        },
+        {
+            title: 'Frontend',
+            monthDuration: 4,
+            hourDuration: 909,
+            modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'sass']
+        }
+    ];
 
-console.log(coursesArray.sort((a, b) => a.modules.length - b.modules.length).reverse());
+    console.log(coursesArray.sort((a, b) => a.modules.length - b.modules.length).reverse());
 
 // - Напишіть функцію count(str, stringsearch), яка повертає кількість символів stringsearch у рядку str.
 //     let symb = "о", str = "Астрономия это наука о небесных объектах";
 // document.writeln(count(str, symb)) // 5
-const count = (str, stringsearch) => {
-    let counter = 0;
-    for (const element of stringsearch) {
-        if (element === str) {
-            counter += 1;
+    const count = (str, stringsearch) => {
+        let counter = 0;
+        for (const element of stringsearch) {
+            if (element === str) {
+                counter += 1;
+            }
         }
+        return counter
     }
-    return counter
-}
 
-console.log(count('о', "Астрономия это наука о небесных объектах"));
+    console.log(count('о', "Астрономия это наука о небесных объектах"));
 
 // - Напишіть функцію cutString(str, n), яка видаляє зайві слова з рядка str, залишивши у ній n слів.
 //     let str = "Сила тяжести приложена к центру масс тела";
 // document.writeln(cutString(str, 5)) // 'Сила тяжести приложена к центру'
 
-let somestr = "Сила тяжести приложена к центру масс тела";
+    let somestr = "Сила тяжести приложена к центру масс тела";
 
-const cutString1 = (str, n) => {
-    const arr = str.split(' ');
-    arr.length = n;
-    return arr.join(' ')
-}
+    const cutString1 = (str, n) => {
+        const arr = str.split(' ');
+        arr.length = n;
+        return arr.join(' ')
+    }
 
-console.log(cutString1(somestr, 5))
+    console.log(cutString1(somestr, 5))
 
 // -стоврити масив книжок (назва, кількість сторінок, автори , жанри).
-const books = [{
-    title: 'Harry Potter',
-    pages: 150,
-    authors: ['J.K. Rowling', 'mb others'],
-    genres: ['dark fantasy']
-}, {
-    title: 'Gatsby',
-    pages: 100,
-    authors: ['Ronald', 'Jane', 'McDonald'],
-    genres: ['usual literature', 'unusual']
-}, {
-    title: 'LOTR',
-    pages: 300,
-    authors: ['Tolkin'],
-    genres: ['Fantasy']
-}]
+    const books = [{
+        title: 'Harry Potter',
+        pages: 150,
+        authors: ['J.K. Rowling', 'mb others'],
+        genres: ['dark fantasy']
+    }, {
+        title: 'Gatsby',
+        pages: 100,
+        authors: ['Ronald', 'Jane', 'McDonald'],
+        genres: ['usual literature', 'unusual']
+    }, {
+        title: 'LOTR',
+        pages: 300,
+        authors: ['Tolkin'],
+        genres: ['Fantasy']
+    }]
+}
 
 // -знайти наібльшу книжку.
 let biggestBook = books.sort((a, b) => b.pages - a.pages);
@@ -314,5 +314,5 @@ console.log(books.filter(value => value.authors.length === 2));
 console.log(books.filter(value => value.authors.length === 1));
 
 // - вісортувати книжки по кількості сторінок по зростанню
-console.log(books.sort((a, b) => (a.pages - b.pages)));
+console.log(books.sort((a, b) => a.pages - b.pages));
 
