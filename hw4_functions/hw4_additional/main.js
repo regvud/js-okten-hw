@@ -86,7 +86,6 @@ function f2(...args) {
     } else {
 
         for (let i = 0; i < args.length - 1; i++) {
-            const arg = args[i];
             console.log(args[i] + args[i + 1]);
 
         }
