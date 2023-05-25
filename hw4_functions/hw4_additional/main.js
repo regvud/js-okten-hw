@@ -1,9 +1,7 @@
 //  - створити функцію яка приймає три числа та виводить найменьше. (Без Math.min!)
 const lowestNum = (a, b, c) => {
     let ns = [];
-    ns.push(a)
-    ns.push(b)
-    ns.push(c)
+    ns.push(a, b, c)
 
     return ns.sort((a, b) => a - b)[0]
 }
@@ -12,9 +10,7 @@ console.log(lowestNum(1, 2, 3))
 // - створити функцію яка приймає три числа та виводить найбільше. (Без Math.max!)
 const highestNum = (a, b, c) => {
     let ns = [];
-    ns.push(a)
-    ns.push(b)
-    ns.push(c)
+    ns.push(a, b, c)
 
     return ns.sort((a, b) => b - a)[0]
 }
@@ -122,20 +118,48 @@ f2(10, 100)
 //     [3,5,7,9]
 
 function f5(arr1, arr2) {
+    let res = [];
 
+    for (let i = 0; i < arr1.length; i++) {
+        for (let j = 0; j < arr2.length; j++) {
+            if (i === j) {
+                sum = arr1[i] + arr2[j];
+                res.push(sum)
+            }
+        }
+    }
+    return res
 }
+
+console.log(f5([2, 3, 4, 5], [1, 2, 3, 4]));
 
 // - Створити функцію яка приймає масив будь яких объектів, та повертає масив ключів всіх обєктів
 // EXAMPLE:
 //     [{name: 'Dima', age: 13}, {model: 'Camry'}]  ===> [ name, age, model ]
 
-function f6(arr){
-    return arr.values()
+function f6(arr) {
+    let keysArray = [];
+    for (const arrElement of arr) {
+        for (const arrElementKey in arrElement) {
+            keysArray.push(arrElementKey)
+        }
+    }
+    console.log(keysArray)
 }
 
-console.log(f6([{name: 'Dima', age: 13}, {model: 'Camry'}]));
+f6([{name: 'Dima', age: 13}, {model: 'Camry'}])
 
 //     - Створити функцію яка приймає масив будь яких объектів, та повертає масив значень всіх обєктів
 // EXAMPLE:
 //     [{name: 'Dima', age: 13}, {model: 'Camry'}]  ===> [ Dima, 13, Camry ]
-//
+function f7(arr) {
+    let keysArray = [];
+    for (const arrElement of arr) {
+        for (const arrElementKey in arrElement) {
+            keysArray.push(arrElement[arrElementKey])
+        }
+    }
+    console.log(keysArray)
+}
+
+f7([{name: 'Dima', age: 13}, {model: 'Camry'}])
