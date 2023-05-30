@@ -20,7 +20,6 @@ divElement2.style.fontSize = '40px';
 divElement2.innerText = 'HELLO'
 
 document.body.appendChild(divElement2)
-
 // - Є масив:
 //     ['Main','Products','About us','Contacts']
 // Зробити ul в середині якої будуть лежати елементи масиву (кожен в своєму li)
