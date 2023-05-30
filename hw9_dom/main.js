@@ -12,14 +12,10 @@ divElement.innerText = 'HELLO'
 
 document.body.appendChild(divElement)
 
+const cloneDivElement = divElement.cloneNode(true);
+document.body.appendChild(cloneDivElement)
 
-let divElement2 = document.createElement('div')
-divElement2.classList.add('wrap', 'collapse', 'alpha', 'beta')
-divElement2.style.backgroundColor = 'aqua';
-divElement2.style.fontSize = '40px';
-divElement2.innerText = 'HELLO'
 
-document.body.appendChild(divElement2)
 // - Є масив:
 //     ['Main','Products','About us','Contacts']
 // Зробити ul в середині якої будуть лежати елементи масиву (кожен в своєму li)
