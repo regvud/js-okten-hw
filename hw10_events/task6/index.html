@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label>
+    <input type="number" id="ageCheck" placeholder="Age:">
+</label>
+<button id="btn">save</button>
+<script>
+    //створити інпут який приймає вік людини та кнопку яка підтверджує дію.При натисканні на кнопку зчитати інформацію з інпуту та перевірити вік чи меньше він ніж 18, та повідомити про це користувача-->
+    const input = document.getElementById('ageCheck');
+    btn.onclick = function (ev) {
+        if (input.value < 18) {
+            alert('You are a child')
+        } else {
+            alert('Come in')
+        }
+    }
+</script>
+</body>
+</html>
