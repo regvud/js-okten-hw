@@ -1,13 +1,26 @@
-const keys = [];
+const keys = [1, 2, 3];
 
 function UserCard(cardNumber) {
     this.balance = 0 || 100;
     this.limit = 0 || 100;
     this.historyLogs = [];
-    keys.push(cardNumber)
 
-    this.getCardOptions = function (balance = this.balance, transactionLimit = this.limit, historyLogs = this.historyLogs, key = this.cardNumber) {
-        return {'balance': balance, 'transactionLimit': transactionLimit, 'historyLog': historyLogs, 'key': key}
+
+    for (const key of keys) {
+        if (cardNumber === key) {
+            this.cardNumber = cardNumber;
+        }
+    }
+    if (cardNumber <= 0 || cardNumber > 3) {
+        console.error('Choose ID : 1, 2, 3')
+    }
+    this.getCardOptions = function () {
+        return {
+            balance: this.balance,
+            transactionLimit: this.limit,
+            historyLog: this.historyLogs,
+            key: this.cardNumber
+        }
     };
 
     this.putCredits = function (value) {
@@ -58,28 +71,39 @@ function UserCard(cardNumber) {
     };
 }
 
-const card1 = new UserCard(1);
-const card2 = new UserCard(2);
-
-
-card1.transferCredits(50, card2)
-card1.putCredits(50)
-card1.setTransactionLimit(5000)
-
-console.log(card1.getCardOptions());
-console.log(card2.getCardOptions());
-
 class UserAccount {
-    constructor(name, cards) {
+    constructor(name) {
+        const cards = [];
         this.name = name;
         this.cards = cards;
-
-        this.addCard = function () {
+        this.addCard = function (cardNumber) {
+            if (cards.find(e => e === cardNumber)) {
+                console.error('This card ID already exists');
+            } else if (cardNumber > 0 && cardNumber < 4) {
+                const newUser = new UserCard(cardNumber)
+                cards.push(newUser)
+                return newUser
+            }
+        }
+        this.getCardByKey = function (cardKey) {
+            return cards.find(value => value.cardNumber === cardKey)
 
         }
     }
-
-
 }
 
-console.log(keys)
+const user = new UserAccount('Bob');
+user.addCard(1)
+user.addCard(2)
+
+let card1 = user.getCardByKey(1);
+let card2 = user.getCardByKey(2);
+
+card1.putCredits(500);
+card1.setTransactionLimit(800);
+card1.transferCredits(300, card2);
+
+card2.takeCredits(50);
+
+console.log(card1.getCardOptions())
+console.log(card2.getCardOptions())
