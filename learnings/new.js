@@ -15,6 +15,3 @@
 //
 //
 // // console.log(map.filter(value=>value.wife.name === 'lena'))
-// let number = 5.1
-// console.log(Math.floor(number))
-//
