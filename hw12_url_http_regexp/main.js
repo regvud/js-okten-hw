@@ -26,6 +26,7 @@ fetch(url)
                         .then(response => response.json())
                         .then(() => {
                             const userIDurl = href.getAttribute('href');
+                            localStorage.setItem('user', JSON.stringify(value))
                             location.href = `${userIDurl}`
 
                         })
