@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>user-details</title>
+</head>
+<body>
+<div id="users-details"></div>
+<script src="main.js"></script>
+<script>
+    const parsedUser = JSON.parse(localStorage.getItem('user'));
+    const user  = JSON.stringify((parsedUser))
+    document.write(user)
+
+
+</script>
+</body>
+</html>
