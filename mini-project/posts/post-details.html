@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Posts</title>
+    <style>
+
+        body{
+            font-size: 20px;
+        }
+        #post-info{
+            margin-bottom: 150px ;
+        }
+
+        #wrap{
+            background-color: aliceblue;
+        }
+        #wrap > div{
+            /*margin-bottom: 100px;*/
+
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 0;
+            padding-top: 20px;
+        }
+
+        ol {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        ol > li {
+            width: 20%;
+            height: 300px;
+            padding: 20px;
+            margin-top: 15px;
+            border: 1px black solid;
+
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-flow: column;
+        }
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <div id="post-info">
+        <h1>Post Info</h1>
+    </div>
+    <div id="comments">
+        <h1>Comments</h1>
+    </div>
+</div>
+<script src="main.js"></script>
+</body>
+</html>
