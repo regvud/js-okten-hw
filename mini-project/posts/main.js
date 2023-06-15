@@ -24,39 +24,32 @@ fetch(`https://jsonplaceholder.typicode.com/users/${userID}/posts/?id=${postID}`
 
         wrap.appendChild(postsInfoBlock);
     })
+    // 8 Нижчє інформаці про пост, вивести всі коментарі поточного поста (ендпоінт  - https://jsonplaceholder.typicode.com/posts/POST_ID/comments)
 
-// 8 Нижчє інформаці про пост, вивести всі коментарі поточного поста (ендпоінт  - https://jsonplaceholder.typicode.com/posts/POST_ID/comments)
-setTimeout(function () {
+    .then(() => {
+            fetch(`https://jsonplaceholder.typicode.com/posts/${postID}/comments`)
+                .then(r => r.json())
+                .then(comments => {
 
-    fetch(`https://jsonplaceholder.typicode.com/posts/${postID}/comments`)
-        .then(r => r.json())
-        .then(comments => {
+                    const ol = document.createElement('ol');
 
-            const ol = document.createElement('ol');
+                    for (const comment of comments) {
+                        for (const key in comment) {
+                            if (key === 'body') {
+                                const li = document.createElement('li');
+                                const p = document.createElement('p');
 
-            for (const comment of comments) {
-                for (const key in comment) {
-                    if (key === 'body') {
-                        const li = document.createElement('li');
-                        const p = document.createElement('p');
+                                p.innerText = comment[key];
+                                li.appendChild(p);
+                                ol.appendChild(li);
+                            }
+                        }
 
-                        p.innerText = comment[key];
-                        li.appendChild(p);
-                        ol.appendChild(li);
+                        commentsInfoBlock.appendChild(ol);
+                        wrap.appendChild(commentsInfoBlock);
+
                     }
-                }
+                })
+        }
+    )
 
-                commentsInfoBlock.appendChild(ol);
-                wrap.appendChild(commentsInfoBlock);
-
-            }
-        })
-
-}, 50)
-
-// Стилизація проєкта -
-// index.html - всі блоки з user - по 2 в рядок. кнопки/аосилвння розташувати під інформацією про user.
-//     user-details.html - блок з інфою про user зверху сторінки. Кнопка нижчє, на 90% ширини сторінки, по центру.
-//     блоки з короткою іфною про post - в ряд по 5 .
-//     post-details.html - блок з інфою про пост зверху. Коментарі - по 4 в ряд.
-//     Всі елементи котрі характеризують users, posts, comments візуалізувати, так, щоб було видно що це блоки (дати фон. марджини і тд)

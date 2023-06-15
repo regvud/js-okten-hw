@@ -40,8 +40,7 @@ fetch(`https://jsonplaceholder.typicode.com/users/${userID}`)
                     .then(response => response.json())
                     .then(posts => {
                         const ol = document.createElement('ol');
-
-                        for (const post of posts) {
+                        posts.forEach((post, index) => {
                             for (const postKey in post) {
                                 if (postKey === 'id') {
                                     localStorage.setItem('post id', JSON.stringify(post[postKey]))
@@ -57,13 +56,13 @@ fetch(`https://jsonplaceholder.typicode.com/users/${userID}`)
                                     })
 
                                     p.innerText = post[postKey];
-                                    button.innerText = 'go to post';
+                                    button.innerText = `go to post ${index + 1}`;
 
                                     li.append(p, button);
                                     ol.appendChild(li);
                                 }
                             }
-                        }
+                        })
                         document.body.appendChild(ol);
                     })
                 counter++;
@@ -73,3 +72,4 @@ fetch(`https://jsonplaceholder.typicode.com/users/${userID}`)
         buttonDiv.appendChild(postButton)
         document.body.appendChild(buttonDiv);
     })
+
