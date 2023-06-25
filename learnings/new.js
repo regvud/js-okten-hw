@@ -15,3 +15,4 @@
 //
 //
 // // console.log(map.filter(value=>value.wife.name === 'lena'))
+///
