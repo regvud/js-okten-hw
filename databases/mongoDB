@@ -1,0 +1,199 @@
+use test_table
+
+db.cars.insertOne(
+    {model: 'mercedes', year: 2003, status: 'available'}
+    )
+
+db.cars.insertMany([
+    {model: 'ferrari', year: 2016, status: 'available'},
+    {model: 'lexus', year: 2005, status: 'unavailable'}
+])
+
+db.cars.find(
+    {status: 'available'},
+    {status: 1, year: 1, _id: 0}
+    )
+
+db.cars.find({_id: ObjectId('649d5815785a0e385331d5f7')})
+
+
+db.users.insertMany([
+    {
+        name: 'Alex', age: 25, gender: 'male', address: {
+            city: 'Lviv',
+            street: 'Chornovola',
+            house: 25,
+            flat: 12
+        },
+        parents: [
+            'Vasia',
+            'Masha',
+        ],
+        rating: 5,
+        studying: ['js', 'java']
+    },
+    {
+        name: 'Natalii', age: 29, gender: 'female', address: {
+            city: 'Lviv',
+            street: 'Marko Vovchok',
+            house: 45,
+            flat: 45
+        },
+        parents: [
+            'Igor',
+            'Nina',
+        ],
+        rating: 4,
+        studying: ['python', 'java', 'css']
+    },
+    {
+        name: 'Alexsandr', age: 34, gender: 'male', address: {
+            city: 'Lviv',
+            street: 'Kitayska',
+            house: 10,
+            flat: 5
+        },
+        parents: [
+            'Petro',
+            'Alina',
+        ],
+        rating: 2,
+        studying: ['js', 'java', 'html']
+    },
+    {
+        name: 'Sergii', age: 12, gender: 'male',
+        parents: [
+            'Anton',
+            'Tamara',
+        ],
+        rating: 4,
+        studying: ['node', 'java', 'css', 'mongo', 'mysql']
+    },
+    {
+        name: 'Igor', age: 45, gender: 'male', address: {
+            city: 'Kyiv',
+            street: 'Shevchenko',
+            house: 100,
+            flat: 66
+        },
+        parents: [
+            'Igor',
+            'Igor',
+        ],
+        rating: 5,
+        studying: ['java', 'node']
+    },
+    {
+        name: 'Eva', age: 26, gender: 'female', address: {
+            city: 'Odessa',
+            street: 'Derebasovska',
+            house: 4,
+        },
+        parents: [
+            'Masha'
+        ],
+        rating: 2,
+        studying: ['js']
+    },
+    {
+        name: 'Kira', age: 49, gender: 'female', address: {
+            city: 'Uzgorod',
+            street: 'Doroshenka',
+            house: 201,
+            flat: 1
+        },
+        parents: [
+            'Vitaliy',
+            'Olha',
+        ],
+        rating: 2,
+        studying: ['java']
+    },
+    {
+        name: 'Vova', age: 16, gender: 'male', address: {
+            city: 'Uzgorod',
+            street: 'Bethoven',
+            house: 2,
+            flat: 145
+        },
+        rating: 3
+    }
+
+])
+
+// or find
+db.users.find({
+    $or: [
+        {rating: 2},
+        {rating: 3}
+    ]
+})
+
+//in find
+db.users.find({
+    age: {
+        $in: [34, 26, 29, 17]
+    }
+})
+
+//not in find
+db.users.find({
+    age: {
+        $not: {
+            $in: [34, 26, 29, 17]
+        }
+    }
+})
+
+
+// less or greater find
+db.users.find({age: {$gt: 40}})
+db.users.find({age: {$lt: 20}})
+db.users.find({age: {$gte: 30}})
+db.users.find({age: {$lte: 30}})
+
+//regexp find
+db.users.find({name: /^N/})
+
+//reverse sort
+db.users.find().sort({rating: -1}).limit(4).skip(2)
+
+//set or update value
+db.users.updateOne(
+    {_id: ObjectId('649d5a70785a0e385331d5fd')},
+    {$set: {rating: 3}}
+    )
+
+//unset or update value
+db.users.updateOne(
+    {_id: ObjectId('649d5a70785a0e385331d5fd')},
+    {$unset: {rating: true}}
+    )
+
+db.users.find(
+    {_id: ObjectId('649d5a70785a0e385331d5fd')},
+    )
+
+//arrays
+db.users.find({parents: {$exists: 0}})
+
+//finding by size of array
+db.users.find({studying: {$size: 2}})
+
+//push to arr
+db.users.updateOne(
+    {_id: ObjectId("649d5a70785a0e385331d5fc")},
+    {$push: {studying: 'mongoDB'}}
+    )
+
+db.users.find({_id: ObjectId("649d5a70785a0e385331d5fc")})
+
+//remove from arr
+db.users.updateOne(
+    {_id: ObjectId("649d5a70785a0e385331d5fc")},
+    {$pull: {studying: 'mongoDB'}}
+    )
+
+//delete obj
+db.users.deleteOne('_id')
+db.users.deleteMany('_id')
