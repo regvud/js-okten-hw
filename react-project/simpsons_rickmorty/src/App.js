@@ -1,4 +1,5 @@
 import './App.css';
+import RickAndMortyComponent from "./components/RickAndMortyComponent/RickAndMortyComponent";
 
 function App() {
     {/*1. Описати всю сім'ю сімпсонів (5 персонажів). Характеристики :
@@ -30,32 +31,49 @@ function App() {
     const grampa = new Simpson('Grampa', 'Simpson', 65, 'male', 'https://upload.wikimedia.org/wikipedia/en/3/3e/Abe_Simpson.png');
 
     return (
-        <div className="App">
-            <div>
-                {homer.info()}
-                <img src={homer.img} alt=""/>
+        <>
+            <div className="App">
+                <div>
+                    {homer.info()}
+                    <img src={homer.img} alt=""/>
+                </div>
+                <div>
+                    {bart.info()}
+                    <img src={bart.img} alt=""/>
+                </div>
+                <div>
+                    {lisa.info()}
+                    <img src={lisa.img} alt=""/>
+                </div>
+                <div>
+                    {marge.info()}
+                    <img src={marge.img} alt=""/>
+                </div>
+                <div>
+                    {maggie.info()}
+                    <img src={maggie.img} alt=""/>
+                </div>
+                <div>
+                    {grampa.info()}
+                    <img src={grampa.img} alt=""/>
+                </div>
             </div>
-            <div>
-                {bart.info()}
-                <img src={bart.img} alt=""/>
-            </div>
-            <div>
-                {lisa.info()}
-                <img src={lisa.img} alt=""/>
-            </div>
-            <div>
-                {marge.info()}
-                <img src={marge.img} alt=""/>
-            </div>
-            <div>
-                {maggie.info()}
-                <img src={maggie.img} alt=""/>
-            </div>
-            <div>
-                {grampa.info()}
-                <img src={grampa.img} alt=""/>
-            </div>
-        </div>
+
+            <RickAndMortyComponent id={152}
+                                   name={'Hammerhead Morty'}
+                                   status={'unknown'}
+                                   species={'Humanoid'}
+                                   gender={'Male'}
+                                   image={"https://rickandmortyapi.com/api/character/avatar/152.jpeg"}
+            />
+            <RickAndMortyComponent id={250}
+                                   name={"Mrs. Sullivan"}
+                                   status={"Dead"}
+                                   species={"Human"}
+                                   gender={"Female"}
+                                   image={"https://rickandmortyapi.com/api/character/avatar/250.jpeg"}
+            />
+        </>
     );
 }
 
