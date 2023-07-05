@@ -66,7 +66,7 @@ function App() {
                                    gender={"male"}
                                    image={"https://rickandmortyapi.com/api/character/avatar/548.jpeg"}
             />
-
+            {/*//////////////*/}
         </>
     );
 }
