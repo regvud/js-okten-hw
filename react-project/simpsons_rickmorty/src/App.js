@@ -1,63 +1,23 @@
 import './App.css';
 import RickAndMortyComponent from "./components/RickAndMortyComponent/RickAndMortyComponent";
+import SimpsonsComponent from "./components/SimpsonsComponent/SimpsonsComponent";
 
 function App() {
-    {/*1. Описати всю сім'ю сімпсонів (5 персонажів). Характеристики :
-          ім‘я приізвище вік стать,
-          фотографія (посиланням на зовнішній ресурс,тобто не локальна фотка)
-          */
-    }
-
-    class Simpson {
-        constructor(name, surname, age, gender, photo) {
-            this.name = name;
-            this.surname = surname;
-            this.age = age;
-            this.gender = gender;
-            this.img = photo
-        }
-
-        info() {
-            return <div>{this.name} {this.surname} {this.age} {this.gender}</div>
-
-        }
-    }
-
-    const homer = new Simpson('Homer', 'Simpson', 37, 'male', 'https://upload.wikimedia.org/wikipedia/en/0/02/Homer_Simpson_2006.png');
-    const bart = new Simpson('Bart', 'Simpson', 14, 'male', 'https://upload.wikimedia.org/wikipedia/en/a/aa/Bart_Simpson_200px.png');
-    const lisa = new Simpson('Lisa', 'Simpson', 7, 'female', 'https://upload.wikimedia.org/wikipedia/en/e/ec/Lisa_Simpson.png');
-    const marge = new Simpson('Marge', 'Simpson', 35, 'female', 'https://upload.wikimedia.org/wikipedia/en/0/0b/Marge_Simpson.png');
-    const maggie = new Simpson('Maggie', 'Simpson', 2, 'female', 'https://en.wikipedia.org/wiki/Maggie_Simpson#/media/File:Maggie_Simpson.png');
-    const grampa = new Simpson('Grampa', 'Simpson', 65, 'male', 'https://upload.wikimedia.org/wikipedia/en/3/3e/Abe_Simpson.png');
 
     return (
         <>
-            <div className="App">
-                <div>
-                    {homer.info()}
-                    <img src={homer.img} alt=""/>
-                </div>
-                <div>
-                    {bart.info()}
-                    <img src={bart.img} alt=""/>
-                </div>
-                <div>
-                    {lisa.info()}
-                    <img src={lisa.img} alt=""/>
-                </div>
-                <div>
-                    {marge.info()}
-                    <img src={marge.img} alt=""/>
-                </div>
-                <div>
-                    {maggie.info()}
-                    <img src={maggie.img} alt=""/>
-                </div>
-                <div>
-                    {grampa.info()}
-                    <img src={grampa.img} alt=""/>
-                </div>
-            </div>
+            <SimpsonsComponent name={'Homer'} surname={'Simpson'} gender={'male'} age={37}
+                               photo={'https://upload.wikimedia.org/wikipedia/en/0/02/Homer_Simpson_2006.png'}/>
+
+            <SimpsonsComponent name={'Bart'} surname={'Simpson'} gender={'male'} age={14}
+                               photo={'https://upload.wikimedia.org/wikipedia/en/a/aa/Bart_Simpson_200px.png'}/>
+
+            <SimpsonsComponent name={'Lisa'} surname={'Simpson'} gender={'female'} age={3}
+                               photo={'https://upload.wikimedia.org/wikipedia/en/e/ec/Lisa_Simpson.png'}/>
+
+            <SimpsonsComponent name={'Marge'} surname={'Simpson'} gender={'female'} age={35}
+                               photo={'https://upload.wikimedia.org/wikipedia/en/0/0b/Marge_Simpson.png'}/>
+
 
             <RickAndMortyComponent id={152}
                                    name={'Hammerhead Morty'}
@@ -66,6 +26,7 @@ function App() {
                                    gender={'Male'}
                                    image={"https://rickandmortyapi.com/api/character/avatar/152.jpeg"}
             />
+
             <RickAndMortyComponent id={250}
                                    name={"Mrs. Sullivan"}
                                    status={"Dead"}
@@ -73,6 +34,39 @@ function App() {
                                    gender={"Female"}
                                    image={"https://rickandmortyapi.com/api/character/avatar/250.jpeg"}
             />
+
+            <RickAndMortyComponent id={4}
+                                   name={"Beth Smith"}
+                                   status={"Alive"}
+                                   species={"Human"}
+                                   gender={"Female"}
+                                   image={'https://rickandmortyapi.com/api/character/avatar/4.jpeg'}
+            />
+
+            <RickAndMortyComponent id={702}
+                                   name={"Gun Brain Rick"}
+                                   status={"Dead"}
+                                   species={"Robot"}
+                                   gender={"male"}
+                                   image={"https://rickandmortyapi.com/api/character/avatar/702.jpeg"}
+            />
+
+            <RickAndMortyComponent id={271}
+                                   name={"Principal Vagina"}
+                                   status={"Alive"}
+                                   species={"Cronenberg"}
+                                   gender={"male"}
+                                   image={"https://rickandmortyapi.com/api/character/avatar/271.jpeg"}
+            />
+
+            <RickAndMortyComponent id={548}
+                                   name={"Truckula"}
+                                   status={"Alive"}
+                                   species={"Mythological Creature"}
+                                   gender={"male"}
+                                   image={"https://rickandmortyapi.com/api/character/avatar/548.jpeg"}
+            />
+
         </>
     );
 }
