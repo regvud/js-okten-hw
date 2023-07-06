@@ -349,4 +349,4 @@ from users
          left join profile p on users.id = p.user_id;
 
 insert into profile (first_name, last_name, age, user_id)
-values ('Gennadiy', 'Oleskdqws', 19, 12);
+values ('Gennadiy', 'Oleskdqws', 19, 12);;
