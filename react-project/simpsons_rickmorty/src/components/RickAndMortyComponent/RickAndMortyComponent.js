@@ -10,3 +10,4 @@ const RickAndMortyComponent = (props) => {
 }
 
 export default RickAndMortyComponent;
+//
